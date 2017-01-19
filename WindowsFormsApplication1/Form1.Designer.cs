@@ -69,9 +69,9 @@
             this.checkBox1.AutoSize = true;
             this.checkBox1.Location = new System.Drawing.Point(524, 284);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(77, 17);
+            this.checkBox1.Size = new System.Drawing.Size(83, 17);
             this.checkBox1.TabIndex = 4;
-            this.checkBox1.Text = "Czy spójna";
+            this.checkBox1.Text = "Czy spójna: ";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // dataGridView1

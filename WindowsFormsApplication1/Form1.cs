@@ -20,13 +20,38 @@ namespace WindowsFormsApplication1
             double[] i = Questions.numberRepresentation;
             init = new AHP();
             init.Initialize(i);
-            if (init.CalculateConsistency())
-                this.checkBox1.CheckState = CheckState.Checked;
+            startAhp();
+
+            this.dataGridView1.CellEndEdit += (sender, args) =>
+            {
+                var m = ReadMatrix(dataGridView1);
+                init.resetMatrix(m);
+
+                dataGridView1.Rows.Clear();
+                dataGridView1.Refresh();
+
+                startAhp();
+            };
+        }
+
+        void startAhp()
+        {
             visualiseArray(init.matrix, this.dataGridView1, ChooseCategories.listOfChoosenCategories.ToArray());
             var score = init.startCounting();
             this.textBox1.Text = ConvertArrayToString(score);
+
+
+            if (init.CalculateConsistency() < 0.1)
+            {
+                this.checkBox1.CheckState = CheckState.Checked; 
+            }
+            else
+            {
+                this.checkBox1.CheckState = CheckState.Unchecked;
+            }
+            this.checkBox1.Text = " " + init.CalculateConsistency();
+
             
-            init.CalculateConsistency();
         }
 
         public static void visualiseArray(double [,] q, DataGridView v, string []headers)
@@ -40,7 +65,6 @@ namespace WindowsFormsApplication1
             {
                 v.Rows.Add(convertToString(d[i]));
                 v.Rows[i].HeaderCell.Value = headers[i];
-                
             }
         }
 
@@ -94,6 +118,20 @@ namespace WindowsFormsApplication1
             this.Hide();
             var frm = new Results();
             frm.Show();
+        }
+
+        double[,] ReadMatrix(DataGridView v)
+        {
+            var array = new double[v.RowCount -1, v.ColumnCount];
+            foreach (DataGridViewRow i in dataGridView1.Rows)
+            {
+                if (i.IsNewRow) continue;
+                foreach (DataGridViewCell j in i.Cells)
+                {
+                    array[j.RowIndex, j.ColumnIndex] = Double.Parse((string)j.Value);
+                }
+            }
+            return array;
         }
     }
 }

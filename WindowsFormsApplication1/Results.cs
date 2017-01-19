@@ -32,8 +32,13 @@ namespace WindowsFormsApplication1
 
             listOfCategoriesAhps = generateMatrix();
             var res = countResults(Form1.init, listOfCategoriesAhps);
+
+            for (var i = 0; i < a.Count; i++)
+            {
+                a[i].score = res[i];
+            }
             GeneratureButtons(ChooseCategories.listOfChoosenCategories.ToArray());
-            visualiseApartmentsArray(a.ToArray(), this.dataGridView1);
+            visualiseApartmentsArray(a.OrderByDescending(apartment => apartment.score).ToArray(), this.dataGridView1);
         }
 
         List<AHP> generateMatrix()
@@ -102,6 +107,15 @@ namespace WindowsFormsApplication1
         {
             var b = (Button)sender;
             var frm = new ShowMatrix(listOfCategoriesAhps[int.Parse(b.Name)]);
+            frm.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ChooseCategories.listOfChoosenCategories.Clear();
+            ChooseCategories.listOfChoosenCategoriesByIndex.Clear();
+            this.Hide();
+            var frm = new ChooseCategories();
             frm.Show();
         }
     }

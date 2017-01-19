@@ -40,6 +40,14 @@ namespace WindowsFormsApplication1
             }
         }
 
+        public void resetMatrix(double [,] m)
+        {
+            this.matrix = m;
+
+            average = new double[matrix.GetLength(0)];
+            centroids = new double[matrix.GetLength(0)];
+        }
+
         public double[] startCounting()
         {
             CalculateCentroids();
@@ -47,7 +55,7 @@ namespace WindowsFormsApplication1
             return CalculateAverage();
         }
 
-        public bool CalculateConsistency()
+        public double CalculateConsistency()
         {
             double sum = 0;
             for (int i = 0; i < matrix.GetLength(1); i++)
@@ -56,7 +64,7 @@ namespace WindowsFormsApplication1
             }
             sum = (sum - matrix.GetLength(1)) / (matrix.GetLength(1) - 1);
             sum = sum / r[matrix.GetLength(1) - 1];
-            return sum < 0.1;
+            return sum;
         }
 
         public int CountMatrixLength(double[] v)

@@ -44,10 +44,6 @@ namespace WindowsFormsApplication1
                     p.Y += 25;          
                 }  
             }
-            var b = new Button{Location = new Point(120, p.Y), Size = new Size(100, 20), Text = "Oblicz"};        
-            b.Click += BOnClick;
-            this.Controls.Add(b);
-
             var back = new Button {Location = p, Size = new Size(100,20), Text = "Wróc"};
             back.Click += (sender, args) =>
             {
@@ -58,6 +54,13 @@ namespace WindowsFormsApplication1
                 frm.Show();
             };
             this.Controls.Add(back);
+
+            var b = new Button { Location = new Point(120, p.Y), Size = new Size(100, 20), Text = "Oblicz" };
+            b.Click += BOnClick;
+            this.Controls.Add(b);
+
+            var cons = new CheckBox() {Location = new Point(220,p.Y), Size = new Size(100,20)};
+            this.Controls.Add(cons);
         }
 
         double[] conversionFromStringToDoubles(List<ComboBox>c)

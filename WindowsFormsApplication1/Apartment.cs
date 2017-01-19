@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApplication1
 {
-    public class Apartment
+    public class Apartment : IComparer<Apartment>
     {
         double cena;
         private double metraz;
@@ -15,6 +16,7 @@ namespace WindowsFormsApplication1
         private double ilosc_pokoi;
         private double cena_mediow;
         private double komunikacja;
+        public double score;
         private String rodzaj_ogrzewania;
         private String roznorodnosc_mediow;
 
@@ -35,11 +37,17 @@ namespace WindowsFormsApplication1
         {
             var s = new string[]
             {
-                cena.ToString(), metraz.ToString(), lokalizacja.ToString(), wyposazenie.ToString(),
+                score.ToString(), cena.ToString(), metraz.ToString(), lokalizacja.ToString(), wyposazenie.ToString(),
                     ilosc_pokoi.ToString(), cena_mediow.ToString(), komunikacja.ToString(), rodzaj_ogrzewania, 
                     roznorodnosc_mediow
             };
             return s;
+        }
+
+        public int Compare(Apartment x, Apartment y)
+        {
+            if (x.score > y.score) return -1;
+            else return 1;
         }
     }
 }
