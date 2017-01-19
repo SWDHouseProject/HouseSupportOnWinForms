@@ -29,27 +29,19 @@ namespace WindowsFormsApplication1
             {
                 for (var j = i+1; j < ChooseCategories.listOfChoosenCategories.Count ; j++)
                 {
-                    var t = new TextBox();
-                    var c = new ComboBox();
-                    
+                    var c = new ComboBox {DropDownStyle = ComboBoxStyle.DropDown, Size = new Size(130,100), Location = new Point(412, p.Y)};
                     c.Items.AddRange(values);
-                    c.DropDownStyle = ComboBoxStyle.DropDown;
-                    c.Size = new Size(130,100);
-                    c.Location = new Point(412, p.Y);
-                    c.Name = "c" + i;
                     listOfCombosBoxs.Add(c);
-
-                    t.Text = "Czy kategoria: " + ChooseCategories.listOfChoosenCategories[i] + " jest wazniejsza od kategori: " + 
-                        ChooseCategories.listOfChoosenCategories[j];
-                    t.Location = p;
-                    t.Size = new Size(400,100);
-                    t.TabIndex = 0;
-                    t.Visible = true;
-                    t.Name = "w";
-
-                    p.Y += 25;
                     this.Controls.Add(c);
-                    this.Controls.Add(t);            
+
+                    var t = new TextBox
+                    { Text = "Czy kategoria: " + ChooseCategories.listOfChoosenCategories[i] + " jest wazniejsza od kategori: " +
+                        ChooseCategories.listOfChoosenCategories[j],
+                        Location = p,
+                        Size = new Size(400,100)
+                    };
+                    this.Controls.Add(t);
+                    p.Y += 25;          
                 }  
             }
             var b = new Button{Location = new Point(120, p.Y), Size = new Size(100, 20), Text = "Oblicz"};        

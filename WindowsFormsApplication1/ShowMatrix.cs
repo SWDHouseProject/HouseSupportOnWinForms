@@ -15,7 +15,8 @@ namespace WindowsFormsApplication1
         public ShowMatrix(AHP category)
         {
             InitializeComponent();
-            Form1.visualiseArray(category.matrix, this.dataGridView1);   
+            var t = new string[] {"1", "2", "3", "4", "5"};
+            Form1.visualiseArray(category.matrix, this.dataGridView1, t);  
         }
     }
 }

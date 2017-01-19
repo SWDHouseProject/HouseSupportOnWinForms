@@ -33,7 +33,7 @@ namespace WindowsFormsApplication1
             listOfCategoriesAhps = generateMatrix();
             var res = countResults(Form1.init, listOfCategoriesAhps);
             GeneratureButtons(ChooseCategories.listOfChoosenCategories.ToArray());
-            Form1.visualiseApartmentsArray(a.ToArray(), this.dataGridView1);
+            visualiseApartmentsArray(a.ToArray(), this.dataGridView1);
         }
 
         List<AHP> generateMatrix()
@@ -50,6 +50,17 @@ namespace WindowsFormsApplication1
                 listOfMatrixPerCategory.Add(categoryMatrix);
             }
             return listOfMatrixPerCategory;
+        }
+
+        void visualiseApartmentsArray(Apartment[] q, DataGridView v)
+        {
+            foreach (string category in ChooseCategories.listOfCategories)
+                v.Columns.Add(new DataGridViewTextBoxColumn() { HeaderText = category });
+
+            foreach (var apartment in q)
+            {
+                 v.Rows.Add(apartment.ToArrayStrings());
+            }
         }
 
         double[] countResults(AHP mainMatrix,List<AHP> categoryMatrixes)

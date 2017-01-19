@@ -22,31 +22,25 @@ namespace WindowsFormsApplication1
             init.Initialize(i);
             if (init.CalculateConsistency())
                 this.checkBox1.CheckState = CheckState.Checked;
-            visualiseArray(init.matrix, this.dataGridView1);
+            visualiseArray(init.matrix, this.dataGridView1, ChooseCategories.listOfChoosenCategories.ToArray());
             var score = init.startCounting();
             this.textBox1.Text = ConvertArrayToString(score);
             
             init.CalculateConsistency();
         }
 
-        public static void visualiseArray(double [,] q, DataGridView v)
+        public static void visualiseArray(double [,] q, DataGridView v, string []headers)
         {
+            foreach (var category in headers)
+                v.Columns.Add(new DataGridViewTextBoxColumn() { HeaderText = category });
+
             var d = ToJaggedArray(q);
             v.ColumnCount = d[0].Length;
             for (int i = 0; i < d[0].Length; i++)
             {
-                v.Rows.Add(convertToString(d[i]));                            
-            }
-        }
-
-        public static void visualiseApartmentsArray(Apartment[] q, DataGridView v)
-        {
-            for (int i = 0; i < ChooseCategories.listOfCategories.Length; i++)
-                v.Columns.Add(new DataGridViewTextBoxColumn() {HeaderText = ChooseCategories.listOfCategories[i]});
-
-            for (int i = 0; i < q.ToString().Length; i++)
-            {
-                v.Rows.Add(q[i].ToString());
+                v.Rows.Add(convertToString(d[i]));
+                v.Rows[i].HeaderCell.Value = headers[i];
+                
             }
         }
 
