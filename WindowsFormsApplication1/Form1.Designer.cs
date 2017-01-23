@@ -36,6 +36,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.legend = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.Warning = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -117,11 +118,21 @@
             this.label3.TabIndex = 7;
             this.label3.Text = "Legenda";
             // 
+            // Warning
+            // 
+            this.Warning.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.Warning.Location = new System.Drawing.Point(428, 481);
+            this.Warning.Name = "Warning";
+            this.Warning.Size = new System.Drawing.Size(344, 20);
+            this.Warning.TabIndex = 8;
+            this.Warning.Text = "Macierz musi być spójna proszę popraw wartości liczbowe";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.Warning);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.legend);
             this.Controls.Add(this.label2);
@@ -147,6 +158,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox legend;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox Warning;
     }
 }
 

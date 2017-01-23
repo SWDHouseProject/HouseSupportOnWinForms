@@ -33,8 +33,6 @@ namespace WindowsFormsApplication1
 
                 startAhp();
             };
-
-
         }
 
         void startAhp()
@@ -46,13 +44,18 @@ namespace WindowsFormsApplication1
 
             if (init.CalculateConsistency() < 0.1)
             {
-                this.checkBox1.CheckState = CheckState.Checked; 
+                this.checkBox1.CheckState = CheckState.Checked;
+                this.Warning.Visible = false;
+                this.button1.Enabled = true;
             }
             else
             {
                 this.checkBox1.CheckState = CheckState.Unchecked;
+                this.Warning.Visible = true;
+                this.button1.Enabled = false;
             }
-            this.checkBox1.Text = " " + init.CalculateConsistency();
+            checkBox1.Text = "Czy macierz jest spójna: ";
+            this.checkBox1.Text += " " + init.CalculateConsistency();
 
             
         }
@@ -71,6 +74,9 @@ namespace WindowsFormsApplication1
 
         public static void visualiseArray(double [,] q, DataGridView v, string []headers)
         {
+            v.Rows.Clear();
+            v.Refresh();
+
             foreach (var category in headers)
                 v.Columns.Add(new DataGridViewTextBoxColumn() { HeaderText = category });
 
@@ -136,10 +142,10 @@ namespace WindowsFormsApplication1
             frm.Show();
         }
 
-        double[,] ReadMatrix(DataGridView v)
+        public static double[,] ReadMatrix(DataGridView v)
         {
             var array = new double[v.RowCount -1, v.ColumnCount];
-            foreach (DataGridViewRow i in dataGridView1.Rows)
+            foreach (DataGridViewRow i in v.Rows)
             {
                 if (i.IsNewRow) continue;
                 foreach (DataGridViewCell j in i.Cells)

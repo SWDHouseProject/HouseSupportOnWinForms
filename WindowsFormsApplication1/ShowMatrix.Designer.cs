@@ -41,7 +41,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 37);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(600, 362);
+            this.dataGridView1.Size = new System.Drawing.Size(589, 362);
             this.dataGridView1.TabIndex = 0;
             // 
             // button1
@@ -66,7 +66,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(675, 37);
+            this.label3.Location = new System.Drawing.Point(660, 37);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(49, 13);
             this.label3.TabIndex = 9;
@@ -74,10 +74,10 @@
             // 
             // legend
             // 
-            this.legend.Location = new System.Drawing.Point(618, 53);
+            this.legend.Location = new System.Drawing.Point(606, 53);
             this.legend.Multiline = true;
             this.legend.Name = "legend";
-            this.legend.Size = new System.Drawing.Size(153, 346);
+            this.legend.Size = new System.Drawing.Size(165, 346);
             this.legend.TabIndex = 8;
             // 
             // ShowMatrix

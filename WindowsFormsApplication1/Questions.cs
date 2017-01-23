@@ -61,8 +61,8 @@ namespace WindowsFormsApplication1
             b.Click += BOnClick;
             this.Controls.Add(b);
 
-            var cons = new CheckBox() {Location = new Point(220,p.Y), Size = new Size(100,20)};
-            this.Controls.Add(cons);
+            ///var cons = new CheckBox() {Location = new Point(220,p.Y), Size = new Size(100,20)};
+            //this.Controls.Add(cons);
         }
 
         double[] conversionFromStringToDoubles(List<ComboBox>c)

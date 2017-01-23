@@ -31,14 +31,7 @@ namespace WindowsFormsApplication1
             a.Add(ap);
 
             listOfCategoriesAhps = generateMatrix();
-            var res = countResults(Form1.init, listOfCategoriesAhps);
-
-            for (var i = 0; i < res.Length; i++)
-            {
-                a[i].score = res[i];
-            }
-            GeneratureButtons(ChooseCategories.listOfChoosenCategories.ToArray());
-            visualiseApartmentsArray(a.OrderByDescending(apartment => apartment.score).ToArray(), this.dataGridView1);
+            refreshArray();
         }
 
         List<AHP> generateMatrix()
@@ -57,8 +50,24 @@ namespace WindowsFormsApplication1
             return listOfMatrixPerCategory;
         }
 
+        public void refreshArray()
+        {
+            var res = countResults(Form1.init, listOfCategoriesAhps);
+
+            for (var i = 0; i < res.Length; i++)
+            {
+                a[i].score = res[i];
+            }
+            GeneratureButtons(ChooseCategories.listOfChoosenCategories.ToArray());
+            visualiseApartmentsArray(a.OrderByDescending(apartment => apartment.score).ToArray(), this.dataGridView1);
+
+        }
+
         void visualiseApartmentsArray(Apartment[] q, DataGridView v)
         {
+            v.Rows.Clear();
+            v.Refresh();
+
             v.Columns.Add(new DataGridViewTextBoxColumn() { HeaderText = "Ranking" });
             foreach (string category in ChooseCategories.listOfCategories)
                 v.Columns.Add(new DataGridViewTextBoxColumn() { HeaderText = category });
@@ -107,7 +116,7 @@ namespace WindowsFormsApplication1
         private void BOnClick(object sender, EventArgs eventArgs)
         {
             var b = (Button)sender;
-            var frm = new ShowMatrix(listOfCategoriesAhps[int.Parse(b.Name)]);
+            var frm = new ShowMatrix(listOfCategoriesAhps[int.Parse(b.Name)], this);
             frm.Show();
         }
 

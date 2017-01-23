@@ -54,7 +54,7 @@ namespace WindowsFormsApplication1
         public double[] startCounting()
         {
             CalculateCentroids();
-            CalculateVectorMatrix();
+            CalculateNormalizedMatrix();
             return CalculateAverage();
         }
 
@@ -93,7 +93,7 @@ namespace WindowsFormsApplication1
             }
         }
 
-        public void CalculateVectorMatrix()
+        public void CalculateNormalizedMatrix()
         {
             for (int i = 0; i < matrix.GetLength(1); i++)
             {
