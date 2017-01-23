@@ -38,7 +38,7 @@ namespace WindowsFormsApplication1
         {
             visualiseArray(init.matrix, this.dataGridView1, ChooseCategories.listOfChoosenCategories.ToArray());
             var score = init.startCounting();
-            this.textBox1.Text = ConvertArrayToString(score);
+            this.textBox1.Text = ConvertArrayToString(score.OrderByDescending(s => s).ToArray());
 
 
             if (init.CalculateConsistency() < 0.1)
@@ -128,7 +128,7 @@ namespace WindowsFormsApplication1
                 if (i.IsNewRow) continue;
                 foreach (DataGridViewCell j in i.Cells)
                 {
-                    array[j.RowIndex, j.ColumnIndex] = Double.Parse((string)j.Value);
+                    array[j.RowIndex, j.ColumnIndex] = Double.Parse(j.Value != null ? (string)j.Value:"1");
                 }
             }
             return array;

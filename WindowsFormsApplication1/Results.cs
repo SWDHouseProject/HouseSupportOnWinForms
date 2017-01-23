@@ -33,7 +33,7 @@ namespace WindowsFormsApplication1
             listOfCategoriesAhps = generateMatrix();
             var res = countResults(Form1.init, listOfCategoriesAhps);
 
-            for (var i = 0; i < a.Count; i++)
+            for (var i = 0; i < res.Length; i++)
             {
                 a[i].score = res[i];
             }
@@ -59,6 +59,7 @@ namespace WindowsFormsApplication1
 
         void visualiseApartmentsArray(Apartment[] q, DataGridView v)
         {
+            v.Columns.Add(new DataGridViewTextBoxColumn() { HeaderText = "Ranking" });
             foreach (string category in ChooseCategories.listOfCategories)
                 v.Columns.Add(new DataGridViewTextBoxColumn() { HeaderText = category });
 

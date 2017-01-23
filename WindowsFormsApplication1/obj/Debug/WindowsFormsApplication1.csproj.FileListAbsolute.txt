@@ -11,3 +11,4 @@ D:\Work\HouseSupportSystem\WindowsFormsApplication1\WindowsFormsApplication1\obj
 D:\Work\HouseSupportSystem\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Questions.resources
 D:\Work\HouseSupportSystem\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Results.resources
 D:\Work\HouseSupportSystem\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.ShowMatrix.resources
+D:\Work\HouseSupportSystem\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.OpisStartowy.resources

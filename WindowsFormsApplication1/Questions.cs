@@ -24,7 +24,7 @@ namespace WindowsFormsApplication1
         {
             var p = new Point(12,14);
             
-            string[] values = { "Największe znaczenie", "Bardzo duże znaczenie", "Duże znaczenie", "Umiarkowane znaczenie", "Równoważne" };
+            string[] values = { "Najbardziej znacznie", "Bardzo znacznie", "znacznie", "Umiarkowanie", "Równoważne", "Odrobine mniej istotna", "Mało istotna", "O wiele mniej istotna", "Najmniej istotne" };
             for (var i =0; i < ChooseCategories.listOfChoosenCategories.Count; i++)
             {
                 for (var j = i+1; j < ChooseCategories.listOfChoosenCategories.Count ; j++)
@@ -84,6 +84,18 @@ namespace WindowsFormsApplication1
                         break;
                     case 4:
                         numberRepresentation[i] = 1;
+                        break;
+                    case 5:
+                        numberRepresentation[i] = 1.0/3.0;
+                        break;
+                    case 6:
+                        numberRepresentation[i] = 1.0/5.0;
+                        break;
+                    case 7:
+                        numberRepresentation[i] = 1.0/7.0;
+                        break;
+                    case 8:
+                        numberRepresentation[i] = 1.0/9.0;
                         break;
                 }
             }

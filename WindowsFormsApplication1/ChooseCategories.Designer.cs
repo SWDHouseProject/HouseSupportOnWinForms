@@ -87,11 +87,12 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(87, 9);
+            this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(218, 13);
+            this.label1.Size = new System.Drawing.Size(398, 26);
             this.label1.TabIndex = 5;
-            this.label1.Text = "Przenieś kategorie które chcesz rozpatrywać";
+            this.label1.Text = "Przenieś kategorie które chcesz rozpatrywać, proszę wybrać dokładnie 5 kategorii." +
+    "\r\n\r\n";
             // 
             // ChooseCategories
             // 

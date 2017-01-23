@@ -48,16 +48,23 @@ namespace WindowsFormsApplication1
 
         private void button3_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < listBox2.Items.Count; i++)
+            if (listBox2.Items.Count == 5)
             {
-                var x = listBox2.GetItemText(listBox2.Items[i]);
-                listOfChoosenCategories.Add(x);
-                listOfChoosenCategoriesByIndex.Add(Array.FindIndex(listOfCategories, y => y.Equals(x)));
+                for (int i = 0; i < listBox2.Items.Count; i++)
+                {
+                    var x = listBox2.GetItemText(listBox2.Items[i]);
+                    listOfChoosenCategories.Add(x);
+                    listOfChoosenCategoriesByIndex.Add(Array.FindIndex(listOfCategories, y => y.Equals(x)));
+                }
+
+                this.Hide();
+                var frm = new Questions();
+                frm.Show();
             }
-            
-            this.Hide();
-            var frm = new Questions();
-            frm.Show();
+            else
+            {
+                this.label1.ForeColor = Color.OrangeRed;
+            }
         } 
     }
 }
