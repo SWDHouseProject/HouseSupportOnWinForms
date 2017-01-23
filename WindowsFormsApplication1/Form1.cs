@@ -18,6 +18,7 @@ namespace WindowsFormsApplication1
         {  
             InitializeComponent();
             double[] i = Questions.numberRepresentation;
+            VisualizeLegend(legend);
             init = new AHP();
             init.Initialize(i);
             startAhp();
@@ -32,6 +33,8 @@ namespace WindowsFormsApplication1
 
                 startAhp();
             };
+
+
         }
 
         void startAhp()
@@ -54,6 +57,18 @@ namespace WindowsFormsApplication1
             
         }
 
+        public static void VisualizeLegend(TextBox tbBox)
+        {
+            int i = 9;
+            tbBox.Text = "";
+            foreach (var option in Questions.QuestionsStrings)
+            {
+                tbBox.Text += option + " = " + i + "\r\n";
+                i -= 2;
+            }
+            
+        }
+
         public static void visualiseArray(double [,] q, DataGridView v, string []headers)
         {
             foreach (var category in headers)
@@ -65,6 +80,7 @@ namespace WindowsFormsApplication1
             {
                 v.Rows.Add(convertToString(d[i]));
                 v.Rows[i].HeaderCell.Value = headers[i];
+                v.RowHeadersWidth = 130;
             }
         }
 

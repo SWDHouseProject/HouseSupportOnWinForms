@@ -10,6 +10,7 @@ namespace WindowsFormsApplication1
     {
         double[] r = { 0, 0, 0.58, 0.90, 1.12, 1.24, 1.32, 1.41, 1.45, 1.49, 1.51, 1.53, 1.55, 1.57, 1.58 };
         public double[,] matrix;
+        public double[,] matrix2;
         public double[] centroids;
         public double[] average;
         private int counter = 0;
@@ -38,11 +39,13 @@ namespace WindowsFormsApplication1
                     }
                 }
             }
+            matrix2 = matrix.Clone() as double[,]; 
         }
 
         public void resetMatrix(double [,] m)
         {
             this.matrix = m;
+            matrix2 = matrix.Clone() as double[,];
 
             average = new double[matrix.GetLength(0)];
             centroids = new double[matrix.GetLength(0)];

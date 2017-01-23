@@ -14,23 +14,25 @@ namespace WindowsFormsApplication1
     {
         public static double[] numberRepresentation;
         List<ComboBox> listOfCombosBoxs = new List<ComboBox>();
+        public static string[] QuestionsStrings = { "Najbardziej znacznie", "Bardzo znacznie", "znacznie", "Umiarkowanie", "Równoważne", "Niewiele mniej ważna", "Mniej ważna", "Dużo mniej ważna", "Najmniej ważna" };
         public Questions()
         {
             InitializeComponent();
             CreateQuestionSentences();
+
         }
 
         public void CreateQuestionSentences()
         {
             var p = new Point(12,14);
             
-            string[] values = { "Najbardziej znacznie", "Bardzo znacznie", "znacznie", "Umiarkowanie", "Równoważne", "Odrobine mniej istotna", "Mało istotna", "O wiele mniej istotna", "Najmniej istotne" };
+            
             for (var i =0; i < ChooseCategories.listOfChoosenCategories.Count; i++)
             {
                 for (var j = i+1; j < ChooseCategories.listOfChoosenCategories.Count ; j++)
                 {
                     var c = new ComboBox {DropDownStyle = ComboBoxStyle.DropDown, Size = new Size(130,100), Location = new Point(412, p.Y)};
-                    c.Items.AddRange(values);
+                    c.Items.AddRange(QuestionsStrings);
                     listOfCombosBoxs.Add(c);
                     this.Controls.Add(c);
 

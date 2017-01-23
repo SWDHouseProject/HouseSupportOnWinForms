@@ -34,6 +34,8 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
+            this.legend = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -41,7 +43,7 @@
             // 
             this.button1.Location = new System.Drawing.Point(428, 369);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(362, 108);
+            this.button1.Size = new System.Drawing.Size(344, 108);
             this.button1.TabIndex = 1;
             this.button1.Text = "Dalej";
             this.button1.UseVisualStyleBackColor = true;
@@ -59,20 +61,21 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(15, 9);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.label1.Location = new System.Drawing.Point(65, 9);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label1.Size = new System.Drawing.Size(679, 30);
+            this.label1.Size = new System.Drawing.Size(675, 70);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Tak wygląda liczbowe przedstawienie pytań na które udzielono odpowiedzi. Aby prze" +
-    "jść do rankingu mieszkań bez zmian kliknij dalej.\r\n\r\n";
+            this.label1.Text = "Tak wygląda liczbowe przedstawienie pytań na które udzielono odpowiedzi. \r\nAby pr" +
+    "zejść do rankingu mieszkań bez zmian kliknij dalej.\r\n\r\n";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label1.UseCompatibleTextRendering = true;
             // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(264, 373);
+            this.checkBox1.Location = new System.Drawing.Point(15, 483);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(83, 17);
             this.checkBox1.TabIndex = 4;
@@ -83,9 +86,9 @@
             // 
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(15, 51);
+            this.dataGridView1.Location = new System.Drawing.Point(15, 82);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(775, 298);
+            this.dataGridView1.Size = new System.Drawing.Size(599, 268);
             this.dataGridView1.TabIndex = 0;
             // 
             // label2
@@ -97,11 +100,30 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "Ranking istotności kategorii";
             // 
+            // legend
+            // 
+            this.legend.Location = new System.Drawing.Point(620, 98);
+            this.legend.Multiline = true;
+            this.legend.Name = "legend";
+            this.legend.Size = new System.Drawing.Size(152, 252);
+            this.legend.TabIndex = 6;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(674, 82);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(49, 13);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Legenda";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(802, 489);
+            this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.legend);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.label1);
@@ -123,6 +145,8 @@
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox legend;
+        private System.Windows.Forms.Label label3;
     }
 }
 

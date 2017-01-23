@@ -16,7 +16,13 @@ namespace WindowsFormsApplication1
         {
             InitializeComponent();
             var t = new string[] {"1", "2", "3", "4", "5"};
-            Form1.visualiseArray(category.matrix, this.dataGridView1, t);  
+            Form1.visualiseArray(category.matrix2, this.dataGridView1, t);
+            Form1.VisualizeLegend(legend);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
         }
     }
 }
